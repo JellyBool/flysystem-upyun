@@ -3,7 +3,9 @@
 <p align="center">:floppy_disk: 又拍云 Flysystem 实现，可直接用于 Laravel 项目。</p>
 
 
-<p align="center">[![Build Status](https://scrutinizer-ci.com/g/JellyBool/flysystem-upyun/badges/build.png?b=master)](https://scrutinizer-ci.com/g/JellyBool/flysystem-upyun/build-status/master)</p>
+<p align="center">
+<a href="https://scrutinizer-ci.com/g/JellyBool/flysystem-upyun/build-status/master"><img src="https://scrutinizer-ci.com/g/JellyBool/flysystem-upyun/badges/build.png?b=master" alt="Build Status"></a>
+</p>
 
 
 # Requirement
