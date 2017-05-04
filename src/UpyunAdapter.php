@@ -99,9 +99,10 @@ class UpyunAdapter extends AbstractAdapter
     {
         if (ini_get('allow_url_fopen')) {
             $stream = fopen($this->getUrl($path), 'r');
-            return $this->writeStream($newpath, $stream, new Config());
+            $this->writeStream($newpath, $stream, new Config());
+            return $this->delete($path);
         }
-        return $this->delete($path);
+        return false;
     }
 
     /**
@@ -112,7 +113,8 @@ class UpyunAdapter extends AbstractAdapter
     {
         if (ini_get('allow_url_fopen')) {
             $stream = fopen($this->getUrl($path), 'r');
-            return $this->writeStream($newpath, $stream, new Config());
+            $this->writeStream($newpath, $stream, new Config());
+            return true;
         }
 
         return false;
