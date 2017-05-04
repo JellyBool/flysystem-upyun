@@ -1,9 +1,6 @@
-<h1 align="center">Flysystem Upyun (又拍云)</h1>
+<h1 align="center">Laravel Flysystem Upyun (又拍云)</h1>
 
-<p align="center">:floppy_disk: Flysystem adapter for the Upyun storage.</p>
-
-<p align="center">
-</p>
+<p align="center">:floppy_disk: 又拍云 Flysystem 实现，可直接用于 Laravel 项目。</p>
 
 
 # Requirement
@@ -11,9 +8,10 @@
 - PHP >= 5.5.9
 
 # 安装
+
 直接可以通过 composer 来安装:
 ```shell
-$ composer require "jellybool/flysystem-upyun" -vvv
+$ composer require "jellybool/flysystem-upyun"
 ```
 
 # 使用
@@ -24,10 +22,10 @@ $ composer require "jellybool/flysystem-upyun" -vvv
 use League\Flysystem\Filesystem;
 use JellyBool\Flysystem\Upyun\UpyunAdapter;
 
-$bucket = 'test-bucket-name';
-$operator = 'operator name';
-$password = 'operator password';
-$domain = 'xxxxx.b0.upaiyun.com'; // or with protocol: https://xxxx.b0.upaiyun.com
+$bucket = 'your-bucket-name';
+$operator = 'oparator-name';
+$password = 'operator-password';
+$domain = 'xxxxx.b0.upaiyun.com'; // 或者 https://xxxx.b0.upaiyun.com
 
 $adapter = new UpyunAdapter($bucket, $operator, $password, $domain);
 
@@ -53,7 +51,7 @@ return [
                 'bucket'        => 'your-bucket-name',// 服务名字
                 'operator'      => 'oparator-name', // 操作员的名字
                 'password'      => 'operator-password', // 操作员的密码
-                'domain'        => 'your-domain', // 服务分配的域名
+                'domain'        => 'xxxxx.b0.upaiyun.com', // 服务分配的域名
                 'protocol'     => 'https', // 服务使用的协议，如需使用 http，在此配置 http
             ],
     //...
