@@ -97,12 +97,8 @@ class UpyunAdapter extends AbstractAdapter
      */
     public function rename($path, $newpath)
     {
-        if (ini_get('allow_url_fopen')) {
-            $stream = fopen($this->getUrl($path), 'r');
-            $this->writeStream($newpath, $stream, new Config());
-            return $this->delete($path);
-        }
-        return false;
+        $this->copy($path,$newpath);
+        return $this->delete($path);
     }
 
     /**
@@ -111,13 +107,8 @@ class UpyunAdapter extends AbstractAdapter
      */
     public function copy($path, $newpath)
     {
-        if (ini_get('allow_url_fopen')) {
-            $stream = fopen($this->getUrl($path), 'r');
-            $this->writeStream($newpath, $stream, new Config());
-            return true;
-        }
-
-        return false;
+        $this->writeStream($newpath, fopen($this->getUrl($path), 'r'), new Config());
+        return true;
     }
 
     /**
@@ -176,11 +167,8 @@ class UpyunAdapter extends AbstractAdapter
      */
     public function readStream($path)
     {
-        if (ini_get('allow_url_fopen')) {
-            $stream = fopen($this->getUrl($path), 'r');
-            return compact('stream', 'path');
-        }
-        return false;
+        $stream = fopen($this->getUrl($path), 'r');
+        return compact('stream', 'path');
     }
 
     /**
