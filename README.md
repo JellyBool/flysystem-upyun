@@ -20,6 +20,7 @@
 
 直接可以通过 composer 来安装:
 ```shell
+
 $ composer require "jellybool/flysystem-upyun"
 ```
 
@@ -28,6 +29,7 @@ $ composer require "jellybool/flysystem-upyun"
 ## 1.在一般项目中使用
 
 ```php
+
 use League\Flysystem\Filesystem;
 use JellyBool\Flysystem\Upyun\UpyunAdapter;
 
@@ -45,14 +47,18 @@ $flysystem = new Filesystem($adapter);
 ## 2.在 Laravel 中使用
 
 1.在 `config/app.php` 添加 `UpyunServiceProvider`:
+
 ```php
+
 'providers' => [
     // Other service providers...
     JellyBool\Filesystem\Upyun\UpyunServiceProvider::class,
 ],
 ```
 2.在 `config/filesystems.php` 的 `disks` 中添加下面的配置：
+
 ```php
+
 return [
     //...
       'upyun' => [
@@ -71,6 +77,7 @@ return [
 # API 和方法调用
 
 ```php
+
 bool $flysystem->write('file.md', 'contents');
 
 bool $flysystem->writeStream('file.md', fopen('path/to/your/local/file.jpg', 'r'));
