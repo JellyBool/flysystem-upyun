@@ -52,7 +52,7 @@ $flysystem = new Filesystem($adapter);
 
 'providers' => [
     // Other service providers...
-    JellyBool\Filesystem\Upyun\UpyunServiceProvider::class,
+    JellyBool\Flysystem\Upyun\UpyunServiceProvider::class,
 ],
 ```
 2.在 `config/filesystems.php` 的 `disks` 中添加下面的配置：
