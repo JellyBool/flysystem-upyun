@@ -5,6 +5,7 @@ namespace JellyBool\Flysystem\Upyun;
 use League\Flysystem\Filesystem;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\ServiceProvider;
+use JellyBool\Flysystem\Upyun\Plugins\ImagePreviewUrl;
 
 class UpyunServiceProvider extends ServiceProvider
 {
@@ -20,7 +21,12 @@ class UpyunServiceProvider extends ServiceProvider
                 $config['bucket'], $config['operator'],
                 $config['password'],$config['domain']
             );
-            return new Filesystem($adapter);
+
+            $filesystem = new Filesystem($adapter);
+
+            $fileSystem->addPlugin(new ImagePreviewUrl());
+
+            return $filesystem;
         });
     }
 

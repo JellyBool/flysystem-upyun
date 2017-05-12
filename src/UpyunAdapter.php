@@ -178,10 +178,13 @@ class UpyunAdapter extends AbstractAdapter
     public function listContents($directory = '', $recursive = false)
     {
         $list = [];
+
         $result = $this->client()->read($directory, null, [ 'X-List-Limit' => 100, 'X-List-Iter' => null]);
+
         foreach ($result['files'] as $files) {
-            $list[] = $this->normalizeFileInfo($files);
+            $list[] = $this->normalizeFileInfo($files, $directory);
         }
+
         return $list;
     }
 
@@ -191,6 +194,16 @@ class UpyunAdapter extends AbstractAdapter
     public function getMetadata($path)
     {
         return $this->client()->info($path);
+    }
+
+    /**
+     * @param string $path
+     */
+    public function getType($path)
+    {
+        $response = $this->getMetadata($path);
+
+        return ['type' => $response['x-upyun-file-type']];
     }
 
     /**
@@ -251,14 +264,20 @@ class UpyunAdapter extends AbstractAdapter
     }
 
     /**
+     * Normalize the file info.
+     * 
      * @param array $stats
+     * @param string $directory
+     * 
      * @return array
      */
-    protected function normalizeFileInfo(array $stats)
+    protected function normalizeFileInfo(array $stats, string $directory)
     {
+        $filePath = ltrim($directory . '/' . $stats['name'], '/');
+
         return [
-            'type' => 'file',
-            'path' => $stats['name'],
+            'type' => $this->getType($filePath)['type'],
+            'path' => $filePath,
             'timestamp' => $stats['time'],
             'size' => $stats['size'],
         ];
