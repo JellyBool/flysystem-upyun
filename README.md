@@ -5,6 +5,7 @@
 
 <p align="center">
 <a href="https://scrutinizer-ci.com/g/JellyBool/flysystem-upyun/build-status/master"><img src="https://scrutinizer-ci.com/g/JellyBool/flysystem-upyun/badges/build.png?b=master" alt="Build Status"></a>
+<a href="https://scrutinizer-ci.com/g/JellyBool/flysystem-upyun/build-status/master"><img src="https://scrutinizer-ci.com/g/JellyBool/flysystem-upyun/badges/quality-score.png?b=master" alt="Quality Score"></a>
 <a href="https://packagist.org/packages/JellyBool/flysystem-upyun"><img src="https://poser.pugx.org/JellyBool/flysystem-upyun/v/stable.svg" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/JellyBool/flysystem-upyun"><img src="https://poser.pugx.org/JellyBool/flysystem-upyun/v/unstable.svg" alt="Latest Unstable Version"></a>
 <a href="https://packagist.org/packages/JellyBool/flysystem-upyun"><img src="https://poser.pugx.org/JellyBool/flysystem-upyun/downloads" alt="Total Downloads"></a>
