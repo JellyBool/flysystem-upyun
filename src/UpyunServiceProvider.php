@@ -24,7 +24,7 @@ class UpyunServiceProvider extends ServiceProvider
 
             $filesystem = new Filesystem($adapter);
 
-            $fileSystem->addPlugin(new ImagePreviewUrl());
+            $filesystem->addPlugin(new ImagePreviewUrl());
 
             return $filesystem;
         });
