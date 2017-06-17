@@ -19,7 +19,7 @@ class UpyunServiceProvider extends ServiceProvider
         Storage::extend('upyun', function ($app, $config) {
             $adapter = new UpyunAdapter(
                 $config['bucket'], $config['operator'],
-                $config['password'],$config['domain']
+                $config['password'],$config['domain'],$config['protocol']
             );
 
             $filesystem = new Filesystem($adapter);
