@@ -22,5 +22,12 @@
         "psr-4": {
             "JellyBool\\Flysystem\\Upyun\\": "src/"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "JellyBool\\Flysystem\\Upyun\\UpyunServiceProvider"
+            ]
+        }
     }
 }
